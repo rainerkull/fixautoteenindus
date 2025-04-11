@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fix Autoteenindus OÜ - Kontakt ja asukoht">
+    <title>Kontakt - Fix Autoteenindus OÜ</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <style>
+        @media (max-width: 640px) {
+            .nav-link {
+                font-size: 1.1rem; /* Increase font size for mobile */
+            }
+            .mobile-menu {
+                background-color: white; /* Set background color for mobile menu */
+                border-radius: 0.5rem; /* Add rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            }
+        }
+        @media (max-width: 640px) {
+            .button-hover {
+                padding: 10px 20px; /* Increase padding for buttons */
+                font-size: 1.1rem; /* Increase font size for buttons */
+            }
+        }
+        :root {
+            --primary-yellow: #FFD700;
+            --secondary-blue: #1E3A8A;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .location-card {
+            transition: all 0.5s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .location-image {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all 0.5s ease;
+        }
+
+        .location-card:hover .location-image {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover .contact-icon {
+            transform: scale(1.2);
+            color: #F59E0B;
+        }
+
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .map-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-container:hover::after {
+            opacity: 1;
+        }
+
+        .button-hover {
+            transition: all 0.3s ease;
+        }
+
+        .button-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu animation */
+        #mobileMenu {
+            transition: all 0.3s ease-in-out;
+            transform-origin: top;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobileMenu.show {
+            max-height: 500px;
+        }
+
+        .tartu-image {
+            background-image: url('https://i.imgur.com/nc3BLX3.jpg');
+        }
+
+        .rani-image {
+            background-image: url('https://i.imgur.com/HdmDmId.jpg');
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold" data-aos="fade-right">Fix Autoteenindus OÜ</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="nav-link text-gray-700 hover:text-yellow-500">Avaleht</a>
+                    <a href="/pages/meist.html" class="nav-link text-gray-700 hover:text-yellow-500">Meist</a>
+                    <a href="/pages/teenused.html" class="nav-link text-gray-700 hover:text-yellow-500">Teenused</a>
+                    <a href="/pages/hinnakiri.html" class="nav-link text-gray-700 hover:text-yellow-500">Hinnakiri</a>
+                    <a href="/pages/kontakt.html" class="nav-link text-yellow-500">Kontakt</a>
+                </nav>
+
+                <!-- Contact & Book Button -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-4 text-gray-700">
+                        <a href="tel:7471900" class="flex items-center hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-phone-alt mr-2 text-yellow-500"></i>
+                            <span>Ringtee: 7 471 900</span>
+                        </a>
+                        <a href="tel:7339966" class="flex items-center hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-phone-alt mr-2 text-yellow-500"></i>
+                            <span>Räni: 7 339 966</span>
+                        </a>
+                    </div>
+                    <a href="https://fixus.ee/ringtee-teenindus/" class="button-hover bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition duration-300">
+                        Küsi pakkumist
+                    </a>
+                </div>
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobileMenu" class="md:hidden">
+                <nav class="flex flex-col space-y-4 px-4 py-4">
+                    <a href="/" class="text-gray-700 hover:text-yellow-500 transition-colors duration-300">Avaleht</a>
+                    <a href="/pages/meist.html" class="text-gray-700 hover:text-yellow-500 transition-colors duration-300">Meist</a>
+                    <a href="/pages/teenused.html" class="text-gray-700 hover:text-yellow-500 transition-colors duration-300">Teenused</a>
+                    <a href="/pages/hinnakiri.html" class="text-gray-700 hover:text-yellow-500 transition-colors duration-300">Hinnakiri</a>
+                    <a href="/pages/kontakt.html" class="text-yellow-500">Kontakt</a>
+                    <div class="flex flex-col space-y-2">
+                        <a href="tel:7471900" class="flex items-center text-gray-700 hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-phone-alt mr-2 text-yellow-500"></i>
+                            <span>Ringtee: 7 471 900</span>
+                        </a>
+                        <a href="tel:7339966" class="flex items-center text-gray-700 hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-phone-alt mr-2 text-yellow-500"></i>
+                            <span>Räni: 7 339 966</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Kontakt</h1>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Tartu Location -->
+                <div class="location-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-right">
+                    <div class="h-64 relative location-image tartu-image">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/60 to-black/30 flex items-center justify-center">
+                            <h2 class="text-3xl font-bold text-white text-center px-4">Tartu esindus</h2>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <a href="https://maps.google.com/?q=Ringtee+43a,+Tartu" target="_blank" 
+                           class="flex items-start space-x-4 contact-link hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <p>Ringtee 43a, Tartu</p>
+                        </a>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <div>
+                                <a href="tel:7471900" class="hover:text-yellow-500 block transition-colors duration-300">7 471 900</a>
+                                <a href="tel:53301028" class="hover:text-yellow-500 block transition-colors duration-300">533 010 28</a>
+                            </div>
+                        </div>
+                        <a href="mailto:fixus@fixautoteenindus.ee" 
+                           class="flex items-start space-x-4 contact-link hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-envelope text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <span class="break-all">fixus@fixautoteenindus.ee</span>
+                        </a>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-clock text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <p>E-R: 8:00 - 17:00</p>
+                        </div>
+                        <div class="mt-6 h-64 rounded-lg overflow-hidden shadow-md map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2092.9897094543584!2d26.737762315786435!3d58.34209897959068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eb30b430fc2ec7%3A0xcbcec04da1cad53a!2sFix%20autoteenindus%20O%C3%9C!5e0!3m2!1set!2see!4v1681499423185!5m2!1set!2see"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Räni Location -->
+                <div class="location-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-left">
+                    <div class="h-64 relative location-image rani-image">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/60 to-black/30 flex items-center justify-center">
+<h2 class="text-3xl font-bold text-white text-center px-4">Lõunakeskuse esindus</h2>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <a href="https://maps.google.com/?q=Kogre+tee+1,+Räni+küla,+Kambja+vald" target="_blank"
+                           class="flex items-start space-x-4 contact-link hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <div>
+                                <p>Kogre tee 1, Räni küla</p>
+                                <p>Kambja vald, Tartumaa</p>
+                            </div>
+                        </a>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <div>
+                                <a href="tel:7339966" class="hover:text-yellow-500 block transition-colors duration-300">7 339 966</a>
+                                <a href="tel:53301029" class="hover:text-yellow-500 block transition-colors duration-300">533 010 29</a>
+                            </div>
+                        </div>
+                        <a href="mailto:fix@fixautoteenindus.ee"
+                           class="flex items-start space-x-4 contact-link hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-envelope text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <span class="break-all">fix@fixautoteenindus.ee</span>
+                        </a>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-clock text-yellow-500 mt-1 w-5 text-center contact-icon"></i>
+                            <p>E-R: 9:00 - 18:00</p>
+                        </div>
+                        <div class="mt-6 h-64 rounded-lg overflow-hidden shadow-md map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2091.446956084234!2d26.673534915787583!3d58.36416157959068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eb370027f71f6d%3A0x3c9ddd4975c562f!2sFix%20autoteenindus!5e0!3m2!1set!2see!4v1681499423185!5m2!1set!2see"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8" data-aos="fade-up">Valmis Alustama?</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Küsi pakkumist meie professionaalselt meeskonnalt. Oleme valmis aitama!
+            </p>
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://fixus.ee/ringtee-teenindus/" 
+                   class="button-hover bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300">
+                    Küsi pakkumist
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="bg-gray-800 text-gray-400 py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 Fix Autoteenindus OÜ. Kõik õigused kaitstud.</p>
+    </div>
+</footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle with smooth animation
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('show');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('show');
+            });
+        });
+
+        // Add hover effect to contact links
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.querySelector('.contact-icon').style.transform = 'scale(1.2)';
+            });
+            link.addEventListener('mouseleave', () => {
+                link.querySelector('.contact-icon').style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
