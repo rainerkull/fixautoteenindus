@@ -4,26 +4,27 @@
 
 Veebilehe failide allalaadimiseks on kaks võimalust:
 
-### Variant 1: GitHub kaudu (soovituslik)
-1. Mine aadressile: https://github.com/rainerkull/fixautoteenindus
-2. Vajuta rohelist nuppu "Code"
-3. Vali "Download ZIP"
-4. Lae alla ja paki lahti fixautoteenindus-main.zip
+### Failide Struktuur
+Kopeeri kõik failid ühte kausta järgmise struktuuri järgi:
+```
+/fixautoteenindus/
+├── index.html          # Avaleht
+├── pages/             # Alamlehed
+│   ├── meist.html
+│   ├── teenused.html
+│   ├── hinnakiri.html
+│   └── kontakt.html
+├── images/            # Pildid
+│   ├── fixusrani.png
+│   └── workshop.jpg
+├── fixusringtee.png   # Logo
+└── favicon.ico        # Veebilehe ikoon
+```
 
-### Variant 2: Käsitsi failide kopeerimine
-Kopeeri järgmised failid ja kaustad:
-- `index.html` (avaleht)
-- `pages/` kaust (kõik alamlehed)
-  - meist.html
-  - teenused.html
-  - hinnakiri.html
-  - kontakt.html
-- `images/` kaust (pildid)
-  - fixusrani.png
-  - workshop.jpg
-- `favicon.ico` (veebilehe ikoon)
-- `fixusringtee.png` (logo)
-- `README.md` (juhend)
+### Failide Kontroll
+1. Veendu, et kõik failid on õigetes kaustades
+2. Kontrolli, et kõik pildid on olemas
+3. Testi veebilehte lokaalselt enne üleslaadimist
 
 ## Veebilehe Ülesseadmise Juhend
 
